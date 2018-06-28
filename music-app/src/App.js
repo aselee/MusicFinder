@@ -1,21 +1,43 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import logo from './logo.svg';
 import './App.css';
+import Button from '@material-ui/core/Button';
+import MenuAppBar from './components/MenuAppBar';
+import ArtistContainer from './containers/ArtistContainer';
+
+// SONGKICK API_KEY:"APm3qeoeRxB2Ixuv"
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {users: []};
+  }
+  componentDidMount() {
+    this.props.getArtists();
+  }
+
+
+  
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <div className="container">
+          <header>
+            <MenuAppBar />
+          </header>
+          <div>
+            <h1>Artist Info</h1>
+            <ArtistContainer />
+          </div>
+        </div>
       </div>
     );
   }
 }
+
+// App.PropTypes = {
+
+// }
 
 export default App;
