@@ -4,16 +4,16 @@ import {combineReducers} from 'redux';
 //     return state;
 // }
 
-function artists(state = [], action){
-    if(action.type === "ARTISTS_LOADED"){
+function events(state = [], action){
+    if(action.type === "EVENTS_LOADED"){
+        console.log("events.value", action);
         return action.value;
     }
-    if(action.type)
     return state;
 }
 
 const rootReducer = combineReducers({
-    artists
+    events
 });
 
 export default rootReducer;

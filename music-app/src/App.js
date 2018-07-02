@@ -11,10 +11,10 @@ import ArtistContainer from './containers/ArtistContainer';
 class App extends Component {
   constructor() {
     super();
-    this.state = {users: []};
+    this.state = {events: []};
   }
   componentDidMount() {
-    this.props.getArtists();
+    this.props.getEvents();
   }
 
 
@@ -27,9 +27,12 @@ class App extends Component {
             <MenuAppBar />
           </header>
           <div>
-            <h1>Artist Info</h1>
+            <h1> Event Info</h1>
             <ArtistContainer />
           </div>
+        </div>
+        <div>
+          {/* <GoogleMap /> */}
         </div>
       </div>
     );
