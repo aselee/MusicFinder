@@ -16,8 +16,6 @@ class App extends Component {
   componentDidMount() {
     this.props.getEvents();
   }
-
-
   
   render() {
     return (
@@ -27,7 +25,7 @@ class App extends Component {
             <MenuAppBar />
           </header>
           <div>
-            <h1> Event Info</h1>
+            <h1> Artist Tour Dates </h1>
             <ArtistContainer />
           </div>
         </div>
