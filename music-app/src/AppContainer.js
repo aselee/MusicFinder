@@ -1,11 +1,12 @@
 import App from './App';
 import './App.css';
 import { connect } from 'react-redux';
-// import {fetchArtists} from './actions';
 import {fetchEvents} from './actions';
 
 
-function mdp(dispatch) {
+
+
+function mapDispatchToProps(dispatch) {
     return {
       getEvents() {
           const action = fetchEvents();
@@ -15,4 +16,4 @@ function mdp(dispatch) {
     };
 }
 
-export default connect(null,mdp)(App);
+export default connect(null,mapDispatchToProps)(App);
