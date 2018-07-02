@@ -73,14 +73,3 @@ Artist.propTypes = {
 };
 
 export default withStyles(styles)(Artist);
-
-// import React from 'react-redux';
-
-// function Artist(props) {
-//     return (
-//         <div>
-//             Artist: {props.artist}
-//         </div>
-//     );
-// }
-// export default Artist;

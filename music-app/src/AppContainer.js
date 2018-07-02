@@ -1,9 +1,7 @@
 import App from './App';
 import './App.css';
 import { connect } from 'react-redux';
-import {fetchEvents} from './actions';
-
-
+import { fetchEvents } from './actions';
 
 
 function mapDispatchToProps(dispatch) {
