@@ -11,11 +11,11 @@ const styles = {
   card: {
     minWidth: 275,
   },
-  bullet: {
-    display: 'inline-block',
-    margin: '0 2px',
-    transform: 'scale(0.8)',
-  },
+//   bullet: {
+//     display: 'inline-block',
+//     margin: '0 2px',
+//     transform: 'scale(0.8)',
+//   },
   title: {
     marginBottom: 16,
     fontSize: 14,
@@ -25,12 +25,11 @@ const styles = {
   },
 };
 
-function onSubmit(e) {
+function onSubmit(e, dispatch) {
     e.preventDefault();
     const input = e.target.children[0].value;
-    debugger;
-    const formAction = onFormSubmit(input);
-    formAction();
+    const action = onFormSubmit(input);
+    dispatch(action);
 }
 
 function Artist(props) {
@@ -45,7 +44,7 @@ function Artist(props) {
             Events
           </Typography>
           <div className="input">
-            <form onSubmit={onSubmit}>
+            <form onSubmit={(e) => onSubmit(e, props.dispatch)}>
                 <input type="text" />
                 <button type="submit">Submit</button>
             </form>

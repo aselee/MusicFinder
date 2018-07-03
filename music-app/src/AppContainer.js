@@ -1,7 +1,7 @@
 import App from './App';
 import './App.css';
 import { connect } from 'react-redux';
-import { fetchEvents } from './actions';
+import { fetchEvents, onFormSubmit } from './actions';
 
 
 function mapDispatchToProps(dispatch) {
@@ -9,6 +9,12 @@ function mapDispatchToProps(dispatch) {
       getEvents() {
           const action = fetchEvents();
           dispatch(action)
+      },
+      submitEvent(e) {
+        e.preventDefault();
+        debugger;
+        const action = onFormSubmit();
+        dispatch(action)
       }
 
     };

@@ -26,7 +26,7 @@ class App extends Component {
           </header>
           <div>
             <h1> Artist Tour Dates </h1>
-            <ArtistContainer />
+            <ArtistContainer submitEvent={this.props.submitEvent}/>
           </div>
         </div>
         <div>

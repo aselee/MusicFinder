@@ -7,7 +7,7 @@ export function fetchEvents() {
     .then( (response) => {
       return response.json();
     }).then((events) => {
-      debugger;
+      // debugger;
       dispatch(eventsLoaded(events.resultsPage.results.event));
       console.log("fetched artists", events);
     });
@@ -21,8 +21,8 @@ export function fetchEvents() {
     .then( (response) => {
       return response.json();
     }).then((events) => {
-      dispatch(eventsLoaded(events.resultsPage.results.event));
-      console.log("fetched artists", events);
+      dispatch(eventsLoaded(events.resultsPage.results.event || []));
+      // console.log("fetched artists", events);
     });
   };
  }

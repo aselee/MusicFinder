@@ -8,8 +8,15 @@ function events(state = [], action){
     return state;
 }
 
+function locations(state = [], action) {
+    if(action.type ==="LOCATIONS_LOADED") {
+        return action.value;
+    }
+    return state;
+}
+
 const rootReducer = combineReducers({
-    events
+    events, locations
 });
 
 export default rootReducer;
