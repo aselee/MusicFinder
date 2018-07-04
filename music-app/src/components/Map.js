@@ -1,35 +1,73 @@
-// import React, { Component } from 'react';
-// import GoogleMapReact from 'google-map-react';
+import React from 'react'
+import ReactDOM from 'react-dom'
+
+export class Map extends React.Component {
+
+    componentDidUpdate(prevProps, prevState){
+        if (prevProps.google !== this.props.google) {
+            this.loadMap();
+        }
+    }
+    loadMap(){
+        if (this.props && this.props.google) {
+            const{google} = this.props;
+            const maps = google.maps;
+
+            const mapRef = this.refs.map;
+            const node = ReactDOM.findDOMNode(mapRef);
+
+            let zoom = 14;
+            let lat = 37.774929;
+            let lng = -122.419416
+            const center = new maps.LatLng(lat,lng);
+            const mapConfig = Object.assign({}, {
+                center: center,
+                zoom: zoom
+            })
+            this.map = new maps.Map(node, mapConfig);
+        }
+    }
+
+    render() {
+      return (
+        <div ref='map'>
+          Loading map...
+        </div>
+      )
+    }
+  }
+
+  export default Map;
+
+// import React from 'react';
+// import {
+// Map,
+// GoogleApiWrapper,
+// Marker,
+// InfoWindow
+// } from 'google-maps-react';
  
-// const AnyReactComponent = ({ text }) => <div>{text}</div>;
  
-// class SimpleMap extends Component {
-//   static defaultProps = {
-//     center: {
-//       lat: 59.95,
-//       lng: 30.33
-//     },
-//     zoom: 11
-//   };
- 
-//   render() {
-//     return (
-//       // Important! Always set the container height explicitly
-//       <div style={{ height: '100vh', width: '100%' }}>
-//         <GoogleMapReact
-//           bootstrapURLKeys={{ key: /* YOUR KEY HERE */ }}
-//           defaultCenter={this.props.center}
-//           defaultZoom={this.props.zoom}
-//         >
-//           <AnyReactComponent
-//             lat={59.955413}
-//             lng={30.337844}
-//             text={'Kreyser Avrora'}
-//           />
-//         </GoogleMapReact>
-//       </div>
-//     );
-//   }
+// export class Map extends React.Component {
+
+//     render() {
+//         return(
+//             <Map google={this.props.google} zoom={14}>
+
+//               <Marker onClick={this.onMarkerClick}
+//                 name={'Current Location'} />
+
+//               <InfoWindow onClose={this.onInfoWindowClose}>
+//                 <div>
+//                     <h1>{this.state.selectPlace.name}</h1>
+//                 </div>
+//               </InfoWindow>
+//             </Map>
+//         );
+//     }
+
 // }
  
-// export default SimpleMap;
+// export default GoogleApiWrapper({
+//   apiKey: (AIzaSyA5EQG52zu9Crfxfs7aMxkMLQvuHa_ntO4)
+// })(Map)

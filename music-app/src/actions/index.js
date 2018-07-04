@@ -1,14 +1,14 @@
 
 // fetching events
-export function fetchEvents() {
+export function fetchEvents(artistId) {
   return function (dispatch) {
 
-    fetch(`https://api.songkick.com/api/3.0/artists/82317/calendar.json?apikey=APm3qeoeRxB2Ixuv`)
+    fetch(`https://api.songkick.com/api/3.0/artists/${artistId}/calendar.json?apikey=APm3qeoeRxB2Ixuv`)
     .then( (response) => {
       return response.json();
     }).then((events) => {
       // debugger;
-      dispatch(eventsLoaded(events.resultsPage.results.event));
+      dispatch(eventsLoaded(events.resultsPage.results.event || []));
       console.log("fetched artists", events);
     });
   };
@@ -36,7 +36,7 @@ export function eventsLoaded(events) {
 
 export function updateEvent(events) {
   return function(dispatch){
-    fetch(`https://api.songkick.com/api/3.0/artists/82317/calendar.json?apikey=APm3qeoeRxB2Ixuv`,{
+    fetch(`https://api.songkick.com/api/3.0/artists/calendar.json?apikey=APm3qeoeRxB2Ixuv`,{
       method: 'post',
       body: JSON.stringify(events),
       headers: {

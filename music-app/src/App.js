@@ -5,6 +5,7 @@ import './App.css';
 import Button from '@material-ui/core/Button';
 import MenuAppBar from './components/MenuAppBar';
 import ArtistContainer from './containers/ArtistContainer';
+import Map from './components/Map';
 
 // SONGKICK API_KEY:"APm3qeoeRxB2Ixuv"
 
@@ -30,7 +31,7 @@ class App extends Component {
           </div>
         </div>
         <div>
-          {/* <GoogleMap /> */}
+          <Map />
         </div>
       </div>
     );
