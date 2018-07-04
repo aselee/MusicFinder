@@ -55,7 +55,7 @@ function Artist(props) {
                     console.log(event);
                     return (
                         <div key={index}>
-                            <p>{event.displayName}</p>
+                            <p><button onClick="GETBACKTOTHIS">{event.displayName}</button></p>
                         </div>
                     )
                 })
