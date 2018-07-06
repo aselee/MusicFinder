@@ -56,3 +56,19 @@ export function eventUpdated(events) {
       value: events
   };
 }
+
+// fetching google api
+
+export function fetchMap() {
+  return function (dispatch) {
+
+    fetch("https://maps.googleapis.com/maps/api/js?key=AIzaSyA5EQG52zu9Crfxfs7aMxkMLQvuHa_ntO4&callback=initMap")
+    .then( (response) => {
+      return response.json();
+    }).then((locations) => {
+      // debugger;
+      dispatch(eventsLoaded(locations.google.maps.Map || []));
+      // console.log("fetched artists", locations);
+    });
+  };
+}

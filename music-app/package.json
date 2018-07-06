@@ -9,6 +9,7 @@
     "google-maps-react": "^2.0.2",
     "material-ui-icons": "^1.0.0-beta.36",
     "material-ui-search-bar-enhanced": "^0.5.1",
+    "mongoose": "^5.2.1",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-redux": "^5.0.7",
